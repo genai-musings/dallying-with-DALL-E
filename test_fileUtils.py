@@ -15,7 +15,7 @@ class TestSaveImage(unittest.TestCase):
             {"url": "http://example.com/image_0.png"},
             {"url": "http://example.com/image_1.png"}
         ]
-        save_directory = "/c/imgs/"
+        save_directory = os.path.join(os.getcwd(), "testdata")
 
         # Create the directory if it doesn't exist
         os.makedirs(save_directory, exist_ok=True)
@@ -44,7 +44,7 @@ class TestSaveImage(unittest.TestCase):
             {"url": "http://example.com/image_0.png"},
             {"url": "http://example.com/image_1.png"}
         ]
-        save_directory = "/c/imgs/"
+        save_directory = os.path.join(os.getcwd(), "testdata")
 
         # Create the directory if it doesn't exist
         os.makedirs(save_directory, exist_ok=True)

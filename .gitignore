@@ -2,6 +2,9 @@
 error.log
 openaikey.txt
 
+# app specific folders
+testdata/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

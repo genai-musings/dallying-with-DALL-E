@@ -24,7 +24,7 @@ def main():
         try:
             response = client.generate_image(prompt, 2, "256x256")
             print(response)
-            response = save_image(response_data = response["data"], save_directory = "/c/imgs/")
+            response = save_image(response_data = response["data"], save_directory = os.path.join(os.getcwd(), "testdata"))
             print(response)
         except openai.OpenAIError as e:
             # Handle the exception

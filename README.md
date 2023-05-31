@@ -2,7 +2,7 @@
 
 Repository for dallying with DALL-E.
 
- This respository contains Python code, and associated unit tests, which uses the OpenAI API to perform image generation. The code takes the input from the user and generates a response using DALL-E an AI image generator. You just need to provide a description and DALL·E will generate the image.
+ This repository contains Python code, and associated unit tests, which uses the OpenAI API to perform image generation. The code takes the input from the user and generates a response using DALL-E an AI image generator. You just need to provide a description and DALL-E will generate the image.
 
 ## To run program
 

@@ -1,3 +1,4 @@
+"""dalleImage class."""
 import openai
 
 class dalleImage:
@@ -12,5 +13,3 @@ class dalleImage:
             size=size
             )
         return response
-
-

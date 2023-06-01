@@ -1,8 +1,9 @@
+"""dalleImage class tests."""
 import unittest
 from unittest.mock import patch, Mock
-import openai
 import os
 import sys
+import openai
 
 # Add the root folder to the Python module search path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -16,7 +17,8 @@ class TestDalleImage(unittest.TestCase):
 
     def test_generate_image(self):
         # Unit test of the generate_image method
-        # Using the mocking technique, the actual OpenAI API call is not made ergo real credentials are not used
+        # Using the mocking technique.
+        # The actual OpenAI API call is not made ergo real credentials are not used
 
         prompt = "Generate an image"
         n = 2

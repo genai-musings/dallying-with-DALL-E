@@ -1,3 +1,4 @@
+"""fileUtils class tests."""
 import unittest
 from unittest.mock import patch, Mock
 from unittest import mock

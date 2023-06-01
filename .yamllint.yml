@@ -1,0 +1,10 @@
+---
+
+extends: default
+
+rules:
+  line-length: disable
+  end-of-line: disable
+
+ignore: |
+  - megalinter-reports/** 

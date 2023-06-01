@@ -28,3 +28,4 @@ jobs:
           VALIDATE_MD: true
           SUPERLINTER_RULES_PATH: .github/linters
           DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

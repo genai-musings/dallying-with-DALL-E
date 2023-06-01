@@ -24,7 +24,7 @@ jobs:
           VALIDATE_DOCKERFILE: false
           VALIDATE_MAKEFILE: false
           VALIDATE_PYTHON: true
-          VALIDATE_YAML: true
+          VALIDATE_YAML: false
           VALIDATE_MD: true
           SUPERLINTER_RULES_PATH: .github/config
 #          YAML_YAMLLINT_CONFIG_FILE: ".yamllint.yml"

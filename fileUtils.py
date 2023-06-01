@@ -1,3 +1,4 @@
+"""fileUtils class."""
 import os
 import requests
 
@@ -20,7 +21,7 @@ def save_image(response_data, save_directory):
         filepath = os.path.join(save_directory, filename)
 
         try:
-            response = requests.get(url)
+            response = requests.get(url, timeout=None)
             response.raise_for_status()  # Raise an exception for non-2xx status codes
 
             print(url, filename, filepath)

@@ -27,5 +27,5 @@ jobs:
         run: pip install yamllint
 
       - name: Run Yamllint
-        run: yamllint --config .github/config/.yamllint.yml .
+        run: yamllint --config-file .github/config/.yamllint.yml .
 

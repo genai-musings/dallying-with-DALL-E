@@ -1,10 +1,10 @@
 ---
-
 extends: default
 
 rules:
   line-length: disable
-  end-of-line: disable
+  new-lines: disable
+  truthy: disable
 
-ignore: |
-  - megalinter-reports/** 
+ignore:
+  "**/megalinter-reports/**"

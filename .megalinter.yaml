@@ -14,7 +14,4 @@ linter_rules:
   yaml:
     enabled: true
     include_paths: "**/*.{yaml,yml}"
-    exclude_paths:
-      - megalinter-reports/**    
-    rules:
-      - line-length: disable
+

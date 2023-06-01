@@ -38,8 +38,10 @@ class TestSaveImage(unittest.TestCase):
             self.assertEqual(save_results, [True, True])
 
             # Check if the correct file paths are used
-            expected_calls = [mock.call(url) for url in [r["url"] for r in response_data]]
-            self.assertEqual(mock_get.call_args_list, expected_calls)
+        self.assertEqual(
+            mock_get.call_args_list,
+            [mock.call(r["url"], timeout=None) for r in response_data]
+        )
 
     def test_save_image_failure(self):
         # Test handling failure while saving images
@@ -66,8 +68,10 @@ class TestSaveImage(unittest.TestCase):
             self.assertEqual(save_results, [False, False])
 
             # Check if the correct file paths are used
-            expected_calls = [mock.call(url) for url in [r["url"] for r in response_data]]
-            self.assertEqual(mock_get.call_args_list, expected_calls)
+        self.assertEqual(
+            mock_get.call_args_list,
+            [mock.call(r["url"], timeout=None) for r in response_data]
+        )
 
 if __name__ == '__main__':
     unittest.main()

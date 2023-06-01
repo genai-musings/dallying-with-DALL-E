@@ -26,7 +26,8 @@ jobs:
           VALIDATE_PYTHON: true
           VALIDATE_YAML: true
           VALIDATE_MD: true
-          SUPERLINTER_RULES_PATH: .
-          YAML_YAMLLINT_CONFIG_FILE: ".yamllint.yml"
+          SUPERLINTER_RULES_PATH: .github/config
+#          YAML_YAMLLINT_CONFIG_FILE: ".yamllint.yml"
           DEFAULT_BRANCH: main
+          GITHUB_STATUS_REPORTER: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

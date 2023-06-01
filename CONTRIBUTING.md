@@ -8,8 +8,7 @@ All contributions are welcome including but not limited to:
 
 - Improvements to the code, tests and/or documentation.
 
-## Contributing
-
+## Contributing Instructions
 
 - For code updates, bug fixes or documentation updates please create and submit a pull request.
 

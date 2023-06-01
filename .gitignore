@@ -4,6 +4,7 @@ openaikey.txt
 
 # app specific folders
 testdata/
+megalinter-reports
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,9 +1,0 @@
----
-linter:
-  name: yaml
-  enabled: true
-  rules:
-    - newline: disable
-  file_extension: yml|yaml
-exclude:
-  - megalinter-reports/**

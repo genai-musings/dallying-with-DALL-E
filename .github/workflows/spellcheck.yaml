@@ -1,12 +1,13 @@
+---
 name: spellcheck
 on:
   pull_request:
     types:
       - opened
-      - synchronize  
+      - synchronize
   push:
     branches:
-      - main  
+      - main
 jobs:
   check-spelling:
     runs-on: ubuntu-latest

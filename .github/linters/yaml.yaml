@@ -1,9 +1,9 @@
 ---
-name: YAML Linter Configuration
-
 linter:
   name: yaml
   enabled: true
-  cmd: yaml-lint -q -d "newline: disable"
-  global_cmd: yaml-lint -q -d "newline: disable"
+  cmd: yaml-lint -q
+  global_cmd: yaml-lint -q
+  rules:
+    - newline: disable
   file_extension: yml|yaml

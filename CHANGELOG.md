@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.3] - 2023-06-20
+- [ADDED] Markdown link checker GitHub action
+- [ADDED] JSON validation via SuperLinter
+- [CHANGED] Replaced pylint and yamllint workflows with SuperLinter workflow
+
 ## [1.3.2] - 2023-06-11
 
 - [ADDED] GitHub Issue & PR templates plus associated actions

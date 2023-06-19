@@ -6,4 +6,5 @@ MPL
 pylint
 OpenAI
 OPENAI
+SuperLinter
 yamllint

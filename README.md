@@ -1,4 +1,4 @@
-# dallying-with-DALL-E [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+# dallying-with-DALL-E [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)   [![GitHub Super-Linter](https://github.com/tom-halpin/dallying-with-DALL-E/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 Repository for dallying with DALL-E.
 

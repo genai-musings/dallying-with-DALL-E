@@ -1,9 +1,12 @@
 Changelog
 CHANGELOG
 DALL
+JSON
+Linter
 md
 MPL
 pylint
 OpenAI
 OPENAI
+SuperLinter
 yamllint

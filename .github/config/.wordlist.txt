@@ -10,3 +10,4 @@ OpenAI
 OPENAI
 SuperLinter
 yamllint
+yml

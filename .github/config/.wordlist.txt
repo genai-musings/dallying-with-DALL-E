@@ -2,10 +2,12 @@ Changelog
 CHANGELOG
 CodeQL
 DALL
+Dependabot
 JSON
 Linter
 md
 MPL
+PR
 pylint
 OpenAI
 OPENAI

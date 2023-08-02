@@ -12,4 +12,4 @@ All contributions are welcome including but not limited to:
 
 - For code updates, bug fixes or documentation updates please create and submit a pull request.
 
-- To report an issue or a bug, please open a [GitHub issue](https://github.com/tom-halpin/dallying-with-DALL-E/issues/new)
+- To report an issue or a bug, please open a [GitHub issue](https://github.com/genai-musings/dallying-with-DALL-E/issues/new)

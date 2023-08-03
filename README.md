@@ -45,7 +45,7 @@ The username and password for Docker Hub are stored as secrets this GitHub repos
 Build the Docker image.
 
 ```shell
-docker build -t dallying-with-DALL-E .
+docker build -t dallying-with-dall-e .
 ```
 
 ### Run
@@ -54,7 +54,7 @@ Run the Docker image as a container.
 
 ```shell
 export OPENAI_KEY="Your OpenAI key"
-docker run -it -e OPENAI_KEY= "Your OpenAI Key" dallying-with-DALL-E
+docker run -it -e OPENAI_KEY= "Your OpenAI Key" dallying-with-dall-e
 ```
 
 ## To pull and run an instance of the Docker image from Docker Hub
@@ -62,7 +62,7 @@ docker run -it -e OPENAI_KEY= "Your OpenAI Key" dallying-with-DALL-E
 ### Pull
 
 ```shell
-docker pull <dockerhub-username>/dallying-with-DALL-E:<tag>
+docker pull <dockerhub-username>/dallying-with-dall-e:<tag>
 ```
 
 Replace <dockerhub-username> with your Docker Hub username and <tag> with the specific tag of the Docker image you want to pull.
@@ -71,7 +71,7 @@ Replace <dockerhub-username> with your Docker Hub username and <tag> with the sp
 
 ```shell
 export OPENAI_KEY="Your OpenAI key"
-docker run -it -e OPENAI_KEY= "Your OpenAI Key" <dockerhub-username>/dallying-with-DALL-E:<tag>
+docker run -it -e OPENAI_KEY= "Your OpenAI Key" <dockerhub-username>/dallying-with-dall-e:<tag>
 ```
 
 ## OpenAI API Reference

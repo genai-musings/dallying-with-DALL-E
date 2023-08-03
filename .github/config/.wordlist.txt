@@ -3,6 +3,10 @@ CHANGELOG
 CodeQL
 DALL
 Dependabot
+Dockerfile
+Dockerized
+DOCKERHUB_USERNAME
+DOCKERHUB_PASSWORD
 JSON
 Linter
 md

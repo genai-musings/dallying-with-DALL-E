@@ -34,6 +34,46 @@ To generate images you need [DALL-E credits](https://help.openai.com/en/articles
 pytest
 ```
 
+## To build and run an instance of a Docker image locally.
+
+The username and password for Docker Hub are stored as secrets this GitHub repository.
+
+**Note:** To set up the secrets in your GitHub repository, go to the repository page, navigate to the "Settings" tab, and then select "Secrets" from the left menu. Add a secret named DOCKERHUB_USERNAME with the Docker Hub username to be used, and another secret named DOCKERHUB_PASSWORD with the Docker Hub password to be used.
+
+### Build
+
+Build the Docker image.
+
+```shell
+docker build -t dallying-with-DALL-E .
+```
+
+### Run
+
+Run the Docker image as a container.
+
+```shell
+export OPENAI_KEY="Your OpenAI key"
+docker run -it -e OPENAI_KEY= "Your OpenAI Key" dallying-with-DALL-E
+```
+
+## To pull and run an instance of the Docker image from Docker Hub
+
+### Pull
+
+```shell
+docker pull <dockerhub-username>/dallying-with-DALL-E:<tag>
+```
+
+Replace <dockerhub-username> with your Docker Hub username and <tag> with the specific tag of the Docker image you want to pull.
+
+### Run
+
+```shell
+export OPENAI_KEY="Your OpenAI key"
+docker run -it -e OPENAI_KEY= "Your OpenAI Key" <dockerhub-username>/dallying-with-DALL-E:<tag>
+```
+
 ## OpenAI API Reference
 
 For more information on the API available see the [OpenAI API Reference Documentation](https://platform.openai.com/docs/api-reference).

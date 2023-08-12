@@ -8,6 +8,7 @@
 [![Spell-Checker](https://github.com/genai-musings/dallying-with-DALL-E/actions/workflows/spellcheck.yaml/badge.svg)](https://github.com/rojopolis/spellcheck-github-actions)
 [![Unit-Tests](https://github.com/genai-musings/dallying-with-DALL-E/actions/workflows/test.yaml/badge.svg)](https://github.com/actions/setup-python)
 [![Code-Coverage](https://github.com/genai-musings/dallying-with-DALL-E/actions/workflows/coverage.yaml/badge.svg)](https://github.com/actions/setup-python)
+[![Docker-Build-Push](https://github.com/genai-musings/dallying-with-DALL-E/actions/workflows/docker-build-push.yml/badge.svg)](https://hub.docker.com/)
 
 Repository for dallying with DALL-E.
 

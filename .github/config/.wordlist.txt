@@ -16,6 +16,7 @@ PR
 pylint
 OpenAI
 OPENAI
+README
 SuperLinter
 yamllint
 yml

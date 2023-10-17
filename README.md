@@ -56,7 +56,7 @@ Run the Docker image as a container.
 
 ```shell
 export OPENAI_KEY="Your OpenAI key"
-docker run -it -e OPENAI_KEY= "Your OpenAI Key" dallying-with-dall-e
+docker run -it -e OPENAI_KEY=$OPENAI_KEY dallying-with-dall-e
 ```
 
 ## To pull and run an instance of the Docker image from Docker Hub
@@ -73,7 +73,7 @@ Replace <dockerhub-username> with your Docker Hub username and <tag> with the sp
 
 ```shell
 export OPENAI_KEY="Your OpenAI key"
-docker run -it -e OPENAI_KEY= "Your OpenAI Key" <dockerhub-username>/dallying-with-dall-e:<tag>
+docker run -it -e OPENAI_KEY=$OPENAI_KEY <dockerhub-username>/dallying-with-dall-e:<tag>
 ```
 
 ## OpenAI API Reference

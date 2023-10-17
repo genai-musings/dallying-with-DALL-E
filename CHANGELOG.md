@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.6.1] - 2023-10-17
 
 - [CHANGED] Updates to README.md
-- [CHANGED] Updates to Dockerfile maintainers and to CODEOWNERS
+- [CHANGED] Updates to Dockerfile maintainers
+- [ADDED] CODEOWNERS
 
 ## [1.6.0] - 2023-10-09
 

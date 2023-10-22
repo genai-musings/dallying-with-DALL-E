@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.4] - 2023-10-22
+
+- [FIXED] Bug in Dockerfile by adding folder to store images generated
+
 ## [1.6.3] - 2023-10-20
 
 - [ADDED] Documentation in the form of code comments.

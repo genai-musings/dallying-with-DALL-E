@@ -7,6 +7,9 @@ LABEL description="Sample Python application for dallying wit DALL-E via API."
 # Set the working directory inside the container
 WORKDIR /app
 
+# Create the testdata directory to store the images generated
+RUN mkdir ./testdata
+
 # Copy the requirements.txt file to the working directory
 COPY requirements.txt .
 

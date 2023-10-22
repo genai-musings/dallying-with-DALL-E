@@ -1,5 +1,6 @@
 """main program entry point"""
 import os
+import sys
 import logging
 import openai
 
@@ -20,7 +21,7 @@ def main():
         prompt = str(input())
 
         if prompt == "":
-            break
+            sys.exit(0)
 
         try:
             response = client.generate_image(prompt, 2, "256x256")

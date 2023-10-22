@@ -1,77 +1,54 @@
 """fileUtils class tests."""
 import unittest
 from unittest.mock import patch, Mock
-from unittest import mock
 import os
 import sys
-import requests
+import openai
 
 # Add the root folder to the Python module search path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from fileUtils import save_image
+# Import the DALL·E Image Generator class from dalleImage.py
+from dalleImage import dalleImage
 
-class TestSaveImage(unittest.TestCase):
-    def test_save_image_success(self):
-        # Test saving images successfully
+# A test suite for the DALL·E Image Generator class.
+class TestDalleImage(unittest.TestCase):
+    def setUp(self):
+        """
+        Initialize test setup.
 
-        # Mocked response data
-        response_data = [
-            {"url": "http://example.com/image_0.png"},
-            {"url": "http://example.com/image_1.png"}
-        ]
-        save_directory = os.path.join(os.getcwd(), "testdata")
+        This method is called before each test case and sets up the DALL·E Image Generator
+        instance with a mock API key for testing.
+        """
+        self.api_key = 'api_key'
+        self.dalle = dalleImage(self.api_key)
 
-        # Create the directory if it doesn't exist
-        os.makedirs(save_directory, exist_ok=True)
+    def test_generate_image(self):
+        """
+        Test the generate_image method of the DALL·E Image Generator.
 
-        # Create a mock response for the requests.get method
-        mock_response = Mock()
-        mock_response.status_code = 200
-        mock_response.content = b"image content"
+        This test case focuses on the generate_image method and uses mocking techniques.
+        The actual OpenAI API call is replaced with a mock to avoid using real credentials.
 
-        # Mock the requests.get method to return the mock response
-        with patch.object(requests, "get", return_value=mock_response) as mock_get:
-            save_results = save_image(response_data, save_directory)
+        It checks if the generate_image method correctly invokes the OpenAI API, and if it
+        returns the expected response.
+        """
+        prompt = "Generate an image"
+        n = 2
+        size = "256x256"
+        expected_response = {"image": "generated_image.png"}
 
-            # Check if images are saved successfully
-            self.assertEqual(save_results, [True, True])
+        # Mock the OpenAI API call
+        mock_image_create = Mock(return_value=expected_response)
+        with patch.object(openai.Image, "create", mock_image_create):
+            # Call the generate_image method
+            response = self.dalle.generate_image(prompt, n, size)
 
-            # Check if the correct file paths are used
-        self.assertEqual(
-            mock_get.call_args_list,
-            [mock.call(r["url"], timeout=30) for r in response_data]
-        )
+        # Check if the API call was made with the correct arguments
+        mock_image_create.assert_called_once_with(prompt=prompt, n=n, size=size)
 
-    def test_save_image_failure(self):
-        # Test handling failure while saving images
-
-        # Mocked response data
-        response_data = [
-            {"url": "http://example.com/image_0.png"},
-            {"url": "http://example.com/image_1.png"}
-        ]
-        save_directory = os.path.join(os.getcwd(), "testdata")
-
-        # Create the directory if it doesn't exist
-        os.makedirs(save_directory, exist_ok=True)
-
-        # Create a mock response for the requests.get method
-        mock_response = Mock()
-        mock_response.status_code = 404
-
-        # Mock the requests.get method to return the mock response
-        with patch.object(requests, "get", return_value=mock_response) as mock_get:
-            save_results = save_image(response_data, save_directory)
-
-            # Check if the save operation fails for both images
-            self.assertEqual(save_results, [False, False])
-
-            # Check if the correct file paths are used
-        self.assertEqual(
-            mock_get.call_args_list,
-            [mock.call(r["url"], timeout=30) for r in response_data]
-        )
+        # Check if the response matches the expected response
+        self.assertEqual(response, expected_response)
 
 if __name__ == '__main__':
     unittest.main()

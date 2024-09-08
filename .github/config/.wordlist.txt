@@ -19,5 +19,6 @@ OpenAI
 OPENAI
 README
 SuperLinter
+Trivy
 yamllint
 yml

@@ -30,9 +30,20 @@ class dalleImage:
         and other parameters. It returns a dictionary containing the image response.
         """
         # Create the image using the OpenAI API
+
+        response = openai.images.generate(
+            model="dall-e-3",
+            quality="standard",
+            prompt=prompt,
+            n=n,
+            size=size
+            )
+        return response
+
+"""
         response = openai.Image.create(
             prompt=prompt,
             n=n,
             size=size
         )
-        return response
+"""

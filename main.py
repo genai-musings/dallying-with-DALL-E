@@ -16,6 +16,9 @@ def main():
         print("       Refer to the README.md for instructions on how to create an OpenAI API Key.")
         sys.exit(1)  # Exit the application with a non-zero status code
 
+    # If the environment variable is set, continue with the application
+    dImage = dalleImage(api_key)
+
     # Configure logging
     logging.basicConfig(filename="error.log", level=logging.ERROR)
 
@@ -29,11 +32,13 @@ def main():
             sys.exit(0)
 
         try:
-            response = client.generate_image(prompt, 2, "256x256")
-            print(response)
-            response = save_image(response_data = response["data"],
+            response = dImage.generate_image(prompt, 1, "1024x1024")
+            #print(response)
+            image_url = response.data[0].url
+            response = save_image(response_data = response.data,
                                   save_directory = os.path.join(os.getcwd(), "testdata"))
-            print(response)
+            print("Image generated and available at URL:", image_url)
+            #print(response)
         except openai.OpenAIError as exp:
             # Handle the exception
             # Log the error message and exception type

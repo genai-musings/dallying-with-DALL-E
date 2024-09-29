@@ -1,54 +1,55 @@
-"""fileUtils class tests."""
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, mock_open, MagicMock
+import requests
 import os
 import sys
-import openai
 
 # Add the root folder to the Python module search path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Import the DALL·E Image Generator class from dalleImage.py
-from dalleImage import dalleImage
+# Import the save_image function from your module
+from fileUtils import save_image
 
-# A test suite for the DALL·E Image Generator class.
-class TestDalleImage(unittest.TestCase):
-    def setUp(self):
+class TestFileUtils:
+    
+    @patch("fileUtils.requests.get")
+    @patch("fileUtils.os.path.join", side_effect=lambda d, f: f"{d}/{f}")  # Use simple path construction
+    @patch("builtins.open", new_callable=mock_open)
+    def test_save_image_success(self, mock_open_file, mock_os_path_join, mock_requests_get):
         """
-        Initialize test setup.
-
-        This method is called before each test case and sets up the DALL·E Image Generator
-        instance with a mock API key for testing.
+        Test save_image function for successful image saving.
         """
-        self.api_key = 'api_key'
-        self.dalle = dalleImage(self.api_key)
+        response_data = [
+            MagicMock(url="http://example.com/image1.png"),
+            MagicMock(url="http://example.com/image2.png"),
+        ]
+        save_directory = "/fake/directory"
 
-    def test_generate_image(self):
+        # Mock the response of requests.get
+        mock_response = MagicMock()
+        mock_response.content = b"fake_image_data"
+        mock_requests_get.return_value = mock_response
+
+        # Call the function
+        results = save_image(response_data, save_directory)
+        assert results == ["image_0.png", "image_1.png"]  # Adjust this based on your expected output
+
+    @patch("fileUtils.requests.get")
+    @patch("fileUtils.os.path.join", side_effect=lambda d, f: f"{d}/{f}")  # Use simple path construction
+    @patch("builtins.open", new_callable=mock_open)
+    def test_save_image_failure(self, mock_open_file, mock_os_path_join, mock_requests_get):
         """
-        Test the generate_image method of the DALL·E Image Generator.
-
-        This test case focuses on the generate_image method and uses mocking techniques.
-        The actual OpenAI API call is replaced with a mock to avoid using real credentials.
-
-        It checks if the generate_image method correctly invokes the OpenAI API, and if it
-        returns the expected response.
+        Test save_image function when there is an error during the image download.
         """
-        prompt = "Generate an image"
-        n = 2
-        size = "256x256"
-        expected_response = {"image": "generated_image.png"}
+        response_data = [
+            MagicMock(url="http://example.com/image1.png"),
+            MagicMock(url="http://example.com/image2.png"),
+        ]
+        save_directory = "/fake/directory"
 
-        # Mock the OpenAI API call
-        mock_image_create = Mock(return_value=expected_response)
-        with patch.object(openai.Image, "create", mock_image_create):
-            # Call the generate_image method
-            response = self.dalle.generate_image(prompt, n, size)
+        # Mock the request.get response to raise an exception (e.g., timeout)
+        mock_requests_get.side_effect = requests.exceptions.RequestException("Connection error")
 
-        # Check if the API call was made with the correct arguments
-        mock_image_create.assert_called_once_with(prompt=prompt, n=n, size=size)
-
-        # Check if the response matches the expected response
-        self.assertEqual(response, expected_response)
-
-if __name__ == '__main__':
-    unittest.main()
+        # Call the function
+        results = save_image(response_data, save_directory)
+        assert results == []  # Adjust based on how your function handles failures
